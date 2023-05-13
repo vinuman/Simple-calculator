@@ -82,6 +82,12 @@ p {
   color: #e33737;
 }
 
-.show {
-  display: block;
+@media screen and (max-width: 760px) {
+  body {
+    padding: 4rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
 }
