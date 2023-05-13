@@ -21,19 +21,9 @@ const Main = () => {
   };
 
   const handleOperand = (e) => {
-    setOperand(e.target.textContent);
-    setError(false);
-  };
-
-  const handleReset = () => {
-    setNum1("");
-    setNum2("");
-    setOperand(null);
-    setError(false);
-    setResult(null);
-  };
-
-  const calculate = () => {
+    setOperand(e);
+    console.log(e.target.value);
+    console.log(operand);
     if (num1 === "" || num2 === "") {
       setError(true);
       return;
@@ -69,11 +59,11 @@ const Main = () => {
         <label>Num2</label>
         <input onChange={handleNum2} type="number" placeholder="Num2"></input>
       </div>
-      <Button text="+" onClick={handleOperand} />
-      <Button text="-" onClick={handleOperand} />
-      <Button text="*" onClick={handleOperand} />
-      <Button text="/" onClick={handleOperand} />
-      <Button text="reset" onClick={handleReset} />
+      <Button handleOperand={handleOperand} text="+" />
+      <Button handleOperand={handleOperand} text="-" />
+      <Button handleOperand={handleOperand} text="*" />
+      <Button handleOperand={handleOperand} text="/" />
+
       {result !== null && !error && (
         <p className="result">Your result is {result}</p>
       )}
